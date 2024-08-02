@@ -42,8 +42,14 @@ def scrape_data(driver):
     # Pair each location with its corresponding world number
     data = list(zip(worlds, locations, size, time))
 
+    # sizes and times to filter collected data by
+    wanted_sizes = {'T6', 'T7', 'T8', 'T9'}
+    wanted_times = {'0m ago', '1m ago', '2m ago', '3m ago', '4m ago', '5m ago'}
+
+    filtered_data = [item for item in data if item[2] in wanted_sizes and item[3] in wanted_times]
+
     # Present data on console
-    for item in data:
+    for item in filtered_data:
         print(item)
 
 url = "https://osrsportal.com/shooting-stars-tracker"
