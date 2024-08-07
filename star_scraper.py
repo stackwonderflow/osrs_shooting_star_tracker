@@ -62,7 +62,7 @@ try:
     while True:
         scrape_data(driver)
         # Wait for N seconds
-        time.sleep(10)
+        time.sleep(30)
 
 except Exception as e:
     print(f"An error occurred: {e}")
