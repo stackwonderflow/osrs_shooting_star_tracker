@@ -58,14 +58,18 @@ options = Options()
 options.headless = True
 driver = webdriver.Firefox(options=options)
 
-try:
-    while True:
-        scrape_data(driver)
-        # Wait for N seconds
-        time.sleep(30)
+def main(driver):
+    try:
+        while True:
+            scrape_data(driver)
+            # Wait for N seconds
+            time.sleep(30)
 
-except Exception as e:
-    print(f"An error occurred: {e}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
-finally:
-    driver.quit()
+    finally:
+        driver.quit()
+
+if __name__ == "__main__":
+    main(driver)
